@@ -15,6 +15,9 @@ namespace ITAM.Models
         public string? hdd { get; set; }
         public string? gpu { get; set; }
         public string? board { get; set; }
+        public string? casee{ get; set; }
+        public string? processor { get; set; }
+        public string? power_supply { get; set; }
         public string? size { get; set; }
         public string? color { get; set; }
         public string? serial_no { get; set; }

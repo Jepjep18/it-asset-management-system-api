@@ -87,6 +87,9 @@ namespace ITAM.Services.AssetImportService
                             cost = TryParseDecimal(worksheet.Cells[row, 18]) ?? 0,
                             remarks = GetCellValue(worksheet.Cells[row, 26]),
                             size = GetCellValue(worksheet.Cells[row, 27]),
+                            processor = GetCellValue(worksheet.Cells[row, 28]),
+                            power_supply = GetCellValue(worksheet.Cells[row, 28]),
+                            casee = GetCellValue(worksheet.Cells[row, 28]),
                             owner_id = user?.id,
                             date_created = DateTime.UtcNow,
                             li_description = liDescription,
@@ -343,14 +346,17 @@ namespace ITAM.Services.AssetImportService
             var storedComponents = new List<ComputerComponents>();
 
             // Define headers that you want to store as 'type'
-            var headers = new string[] { "RAM", "SSD", "HDD", "GPU", "BOARD" };
+            var headers = new string[] { "RAM", "SSD", "HDD", "GPU", "BOARD", "PROCESSOR", "POWER SUPPLY", "CASE" };
             var values = new string[]
             {
             worksheet.Cells[row, 9].Text.Trim(),  // 'RAM'
             worksheet.Cells[row, 10].Text.Trim(), // 'SSD'
             worksheet.Cells[row, 11].Text.Trim(), // 'HDD'
             worksheet.Cells[row, 12].Text.Trim(),  // 'GPU'
-            worksheet.Cells[row, 13].Text.Trim()  // 'BOARD'
+            worksheet.Cells[row, 13].Text.Trim(),  // 'BOARD'
+            worksheet.Cells[row, 28].Text.Trim(),
+            worksheet.Cells[row, 29].Text.Trim(),
+            worksheet.Cells[row, 30].Text.Trim(),
 
             };
 
@@ -411,6 +417,10 @@ namespace ITAM.Services.AssetImportService
             computer.hdd = componentDict.ContainsKey("HDD") ? componentDict["HDD"] : null;
             computer.gpu = componentDict.ContainsKey("GPU") ? componentDict["GPU"] : null;
             computer.board = componentDict.ContainsKey("BOARD") ? componentDict["BOARD"] : null;
+            computer.processor = componentDict.ContainsKey("PROCESSOR") ? componentDict["PROCESSOR"] : null;
+            computer.power_supply = componentDict.ContainsKey("POWER SUPPLY") ? componentDict["POWER SUPPLY"] : null;
+            computer.casee = componentDict.ContainsKey("CASE") ? componentDict["CASE"] : null;
+
 
 
             try

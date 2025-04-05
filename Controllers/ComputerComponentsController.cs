@@ -431,6 +431,21 @@ namespace ITAM.Controllers
                             existing_uids.Add(component.uid);
                             computer.board = string.Join(", ", existing_uids.Where(u => !string.IsNullOrEmpty(u)));
                             break;
+                        case "PROCESSOR":
+                            existing_uids = (computer.processor ?? "").Split(", ").ToList();
+                            existing_uids.Add(component.uid);
+                            computer.processor = string.Join(", ", existing_uids.Where(u => !string.IsNullOrEmpty(u)));
+                            break;
+                        case "PSU":
+                            existing_uids = (computer.psu ?? "").Split(", ").ToList();
+                            existing_uids.Add(component.uid);
+                            computer.psu = string.Join(", ", existing_uids.Where(u => !string.IsNullOrEmpty(u)));
+                            break;
+                        case "CASE":
+                            existing_uids = (computer.casee ?? "").Split(", ").ToList();
+                            existing_uids.Add(component.uid);
+                            computer.casee = string.Join(", ", existing_uids.Where(u => !string.IsNullOrEmpty(u)));
+                            break;
                         default:
                             return (false, "Invalid component type");
                     }
@@ -846,6 +861,18 @@ namespace ITAM.Controllers
                     string updatedBoard = computer.board;
                     RemoveComponentUid(ref updatedBoard);
                     computer.board = updatedBoard;
+
+                    string updatedProcessor = computer.processor;
+                    RemoveComponentUid(ref updatedProcessor);
+                    computer.processor = updatedProcessor;
+
+                    string updatedPsu= computer.psu;
+                    RemoveComponentUid(ref updatedPsu);
+                    computer.psu = updatedPsu;
+
+                    string updatedCase = computer.casee;
+                    RemoveComponentUid(ref updatedCase);
+                    computer.casee = updatedCase;
 
                     computer.date_modified = DateTime.UtcNow;
                     computerAssetBarcode = computer.asset_barcode;

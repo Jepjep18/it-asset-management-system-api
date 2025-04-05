@@ -451,6 +451,9 @@ namespace ITAM.Services.ComputerService
                         c.hdd,
                         c.gpu,
                         c.board,
+                        c.processor,
+                        c.psu,
+                        c.casee,
                         c.size,
                         c.color,
                         c.serial_no,
@@ -507,6 +510,10 @@ namespace ITAM.Services.ComputerService
                 var hddDescriptions = await GetComponentDetailsAsync("HDD", computer.hdd ?? "");
                 var gpuDescriptions = await GetComponentDetailsAsync("GPU", computer.gpu ?? "");
                 var boardDescriptions = await GetComponentDetailsAsync("BOARD", computer.board ?? "");
+                var processorDescriptions = await GetComponentDetailsAsync("PROCESSOR", computer.processor?? "");
+                var psuDescriptions = await GetComponentDetailsAsync("PSU", computer.psu ?? "");
+                var caseDescriptions = await GetComponentDetailsAsync("CASE", computer.casee ?? "");
+
 
 
                 // Fetch owner details
@@ -588,6 +595,9 @@ namespace ITAM.Services.ComputerService
                     hdd = hddDescriptions.Any() ? new { IdProperty = "6", Values = hddDescriptions } : null,
                     gpu = gpuDescriptions.Any() ? new { IdProperty = "7", Values = gpuDescriptions } : null,
                     board = boardDescriptions.Any() ? new { IdProperty = "11", Values = boardDescriptions } : null,
+                    casee = caseDescriptions.Any() ? new { IdProperty = "12", Values = caseDescriptions } : null,
+                    psu = psuDescriptions.Any() ? new { IdProperty = "13", Values = psuDescriptions } : null,
+                    processor = processorDescriptions.Any() ? new { IdProperty = "14", Values = processorDescriptions } : null,
                     size = computer.size,
                     color = computer.color,
                     serial_no = computer.serial_no,

@@ -88,8 +88,8 @@ namespace ITAM.Services.AssetImportService
                             remarks = GetCellValue(worksheet.Cells[row, 26]),
                             size = GetCellValue(worksheet.Cells[row, 27]),
                             processor = GetCellValue(worksheet.Cells[row, 28]),
-                            power_supply = GetCellValue(worksheet.Cells[row, 28]),
-                            casee = GetCellValue(worksheet.Cells[row, 28]),
+                            psu = GetCellValue(worksheet.Cells[row, 29]),
+                            casee = GetCellValue(worksheet.Cells[row, 30]),
                             owner_id = user?.id,
                             date_created = DateTime.UtcNow,
                             li_description = liDescription,
@@ -229,14 +229,14 @@ namespace ITAM.Services.AssetImportService
 
 
         // Helper method to get component type
-        private string GetComponentType(string? ram, string? ssd, string? hdd, string? gpu)
-        {
-            if (!string.IsNullOrWhiteSpace(ram)) return "RAM";
-            if (!string.IsNullOrWhiteSpace(ssd)) return "SSD";
-            if (!string.IsNullOrWhiteSpace(hdd)) return "HDD";
-            if (!string.IsNullOrWhiteSpace(gpu)) return "GPU";
-            return "Unknown Component";
-        }
+        //private string GetComponentType(string? ram, string? ssd, string? hdd, string? gpu)
+        //{
+        //    if (!string.IsNullOrWhiteSpace(ram)) return "RAM";
+        //    if (!string.IsNullOrWhiteSpace(ssd)) return "SSD";
+        //    if (!string.IsNullOrWhiteSpace(hdd)) return "HDD";
+        //    if (!string.IsNullOrWhiteSpace(gpu)) return "GPU";
+        //    return "Unknown Component";
+        //}
 
         //Helper method to get root computer id
         private async Task<List<int>> GetRootComputerIdsAsync(int userId)
@@ -346,7 +346,7 @@ namespace ITAM.Services.AssetImportService
             var storedComponents = new List<ComputerComponents>();
 
             // Define headers that you want to store as 'type'
-            var headers = new string[] { "RAM", "SSD", "HDD", "GPU", "BOARD", "PROCESSOR", "POWER SUPPLY", "CASE" };
+            var headers = new string[] { "RAM", "SSD", "HDD", "GPU", "BOARD", "PROCESSOR", "PSU", "CASE" };
             var values = new string[]
             {
             worksheet.Cells[row, 9].Text.Trim(),  // 'RAM'
@@ -418,7 +418,7 @@ namespace ITAM.Services.AssetImportService
             computer.gpu = componentDict.ContainsKey("GPU") ? componentDict["GPU"] : null;
             computer.board = componentDict.ContainsKey("BOARD") ? componentDict["BOARD"] : null;
             computer.processor = componentDict.ContainsKey("PROCESSOR") ? componentDict["PROCESSOR"] : null;
-            computer.power_supply = componentDict.ContainsKey("POWER SUPPLY") ? componentDict["POWER SUPPLY"] : null;
+            computer.psu = componentDict.ContainsKey("PSU") ? componentDict["PSU"] : null;
             computer.casee = componentDict.ContainsKey("CASE") ? componentDict["CASE"] : null;
 
 

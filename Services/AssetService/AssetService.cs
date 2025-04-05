@@ -855,6 +855,10 @@ namespace ITAM.Services.AssetService
                         computer.hdd = componentDict.GetValueOrDefault("HDD");
                         computer.gpu = componentDict.GetValueOrDefault("GPU");
                         computer.board = componentDict.GetValueOrDefault("BOARD");
+                        computer.processor = componentDict.GetValueOrDefault("PROCESSOR");
+                        computer.psu = componentDict.GetValueOrDefault("PSU");
+                        computer.casee = componentDict.GetValueOrDefault("CASE");
+
 
                         await _context.SaveChangesAsync();
                     }

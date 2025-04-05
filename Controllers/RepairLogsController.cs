@@ -190,7 +190,7 @@ namespace ITAM.Controllers
                 // Check if item_id is valid
                 if (!string.IsNullOrEmpty(log.item_id) && int.TryParse(log.item_id, out int itemId))
                 {
-                    if (new[] { "RAM", "SSD", "HDD", "GPU", "BOARD" }.Contains(log.type))
+                    if (new[] { "RAM", "SSD", "HDD", "GPU", "BOARD", "PROCESSOR" , "PSU", "CASE" }.Contains(log.type))
                     {
                         // Handle computer components
                         var component = await _context.computer_components

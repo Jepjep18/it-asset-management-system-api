@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8a1x22MMikU=",
+  "dgSpecHash": "cPhxraQXB30=",
   "success": true,
-  "projectFilePath": "C:\\Users\\JBARNADO\\Desktop\\itams-v3\\itam-apiUpdates\\ITAM.csproj",
+  "projectFilePath": "C:\\Users\\JBARNADO\\Desktop\\itam-project\\itam-apiUpdates\\ITAM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JBARNADO\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\JBARNADO\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

@@ -8382,11 +8382,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JBARNADO\\Desktop\\itams-v3\\itam-apiUpdates\\ITAM.csproj",
+      "projectUniqueName": "C:\\Users\\JBARNADO\\Desktop\\itam-project\\itam-apiUpdates\\ITAM.csproj",
       "projectName": "ITAM",
-      "projectPath": "C:\\Users\\JBARNADO\\Desktop\\itams-v3\\itam-apiUpdates\\ITAM.csproj",
+      "projectPath": "C:\\Users\\JBARNADO\\Desktop\\itam-project\\itam-apiUpdates\\ITAM.csproj",
       "packagesPath": "C:\\Users\\JBARNADO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JBARNADO\\Desktop\\itams-v3\\itam-apiUpdates\\obj\\",
+      "outputPath": "C:\\Users\\JBARNADO\\Desktop\\itam-project\\itam-apiUpdates\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\JBARNADO\\AppData\\Roaming\\NuGet\\NuGet.Config",
